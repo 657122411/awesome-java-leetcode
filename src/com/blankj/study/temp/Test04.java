@@ -3,10 +3,11 @@ package com.blankj.study.temp;
 import com.blankj.study.base.BinaryTreeNode;
 
 import java.util.LinkedList;
+import java.util.Stack;
 
 
 /**
- * 二叉树层序遍历
+ * 二叉树遍历
  */
 public class Test04 {
     public static void main(String[] args) {
@@ -22,11 +23,15 @@ public class Test04 {
         tree1.setRchild(tree4);
         tree2.setLchild(tree5);
 
+        System.out.println("BFS");
         bfs(tree);
 
+        System.out.println("DFS");
+        dfs(tree);
 
     }
 
+    // 广度优先（层序）遍历
     public static void bfs(BinaryTreeNode node) {
         if (node == null) {
             return;
@@ -45,6 +50,29 @@ public class Test04 {
             if (tmp.getRchild() != null) {
                 queue.offer(tmp.getRchild());
             }
+        }
+    }
+
+    public static void dfs(BinaryTreeNode node){
+        if (node == null) {
+            return;
+        }
+        Stack<BinaryTreeNode> stack = new Stack();
+        stack.push(node);
+
+        while (!stack.isEmpty()) {
+            BinaryTreeNode tmp = stack.pop();
+            System.out.println(tmp.getData());
+
+            if (tmp.getRchild() != null) {
+                stack.push(tmp.getRchild());
+            }
+
+            if (tmp.getLchild() != null) {
+                stack.push(tmp.getLchild());
+            }
+
+
         }
     }
 }
