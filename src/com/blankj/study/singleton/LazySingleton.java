@@ -6,8 +6,6 @@ public class LazySingleton {
     private LazySingleton() {
     }
 
-    ;
-
     private static volatile LazySingleton instance = null;
 
     public static LazySingleton getInstance() {

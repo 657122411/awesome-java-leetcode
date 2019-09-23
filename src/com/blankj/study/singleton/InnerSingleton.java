@@ -6,8 +6,6 @@ public class InnerSingleton {
     private InnerSingleton() {
     }
 
-    ;
-
     public static InnerSingleton getInstance() {
         return SingletonHolder.instance;
     }
